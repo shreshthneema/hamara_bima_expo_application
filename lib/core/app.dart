@@ -19,7 +19,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "HamaraBima Expo Application 3.3",
+      title: "HamaraBima Expo Application 3.5",
       scrollBehavior: kIsWeb ? MyCustomScrollBehavior() : null,
       theme: buildThemeData(context),
       debugShowCheckedModeBanner: false,
