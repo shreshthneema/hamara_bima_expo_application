@@ -173,34 +173,34 @@ class _StallEntryScreenState extends State<StallEntryScreen> {
 QrUserData? parseQrData(String qrEntry) {
   if (qrEntry.trim().isEmpty) return null;
 
-  final lines = qrEntry.split('\n');
+  final lines = qrEntry.split("\n");
 
   final Map<String, String> dataMap = {};
 
   for (final line in lines) {
-    if (!line.contains(':')) continue;
+    if (!line.contains(":")) continue;
 
-    final parts = line.split(':');
+    final parts = line.split(":");
     if (parts.length < 2) continue;
 
     final key = parts[0].trim().toLowerCase();
-    final value = parts.sublist(1).join(':').trim();
+    final value = parts.sublist(1).join(":").trim();
 
     dataMap[key] = value;
   }
 
   // Validation
-  if (!dataMap.containsKey('registration no') || !dataMap.containsKey('full name') || !dataMap.containsKey('organisation name') || !dataMap.containsKey('mobile no.') || !dataMap.containsKey('designation') || !dataMap.containsKey('email id')) {
+  if (!dataMap.containsKey("registration no") || !dataMap.containsKey("full name") || !dataMap.containsKey("organisation name") || !dataMap.containsKey("mobile no.") || !dataMap.containsKey("designation")) {
     return null;
   }
 
   return QrUserData(
-    registrationNo: dataMap['registration no']!,
-    fullName: dataMap['full name']!,
-    organisation: dataMap['organisation name']!,
-    mobile: dataMap['mobile no.']!,
-    designation: dataMap['designation']!,
-    email: dataMap['email id']!,
+    registrationNo: dataMap["registration no"] ?? "",
+    fullName: dataMap["full name"] ?? "",
+    organisation: dataMap["organisation name"] ?? "",
+    mobile: dataMap["mobile no."] ?? "",
+    designation: dataMap["designation"] ?? "",
+    email: dataMap["email id"] ?? "",
   );
 }
 
